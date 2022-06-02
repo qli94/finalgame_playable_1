@@ -68,9 +68,9 @@ class Scene3 extends Phaser.Scene {
         
         // add enemies to group
         this.enemy = this.add.group();
-        //this.bats = this.add.group();
+  
         this.enemy.add(this.monster);
-        //this.bats.add(this.bat)
+       
         
         
         
