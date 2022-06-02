@@ -54,16 +54,13 @@ class Scene2 extends Phaser.Scene {
 
         // make ground tiles
         for(let i = 0; i < game.config.width; i += tileSize) { 
-            let groundTile = this.physics.add.sprite(i, game.config.height - tileSize,  'floor').setScale(SCALE).setOrigin(0);
-            let groundTile2 = this.physics.add.sprite(i, game.config.height - tileSize+10,  'floor').setScale(SCALE).setOrigin(0);
+            let groundTile = this.physics.add.sprite(i, game.config.height - tileSize,  'platform').setScale(SCALE).setOrigin(0);
+        
             groundTile.body.immovable = true;
             groundTile.body.allowGravity = false;
-            groundTile2.body.immovable = true;
-            groundTile2.body.allowGravity = false;
             groundTile.setDepth(1);
-            groundTile2.setDepth(1);
             this.ground.add(groundTile);
-            this.ground.add(groundTile2);
+           
         }
         
 
@@ -78,10 +75,9 @@ class Scene2 extends Phaser.Scene {
         
         // add enemies to group
         this.enemy = this.add.group();
-        //this.bats = this.add.group();
-        this.enemy.add(this.monster);
-        //this.bats.add(this.bat)
         
+        this.enemy.add(this.monster);
+       
         
         
         // player's physical settings
