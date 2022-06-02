@@ -37,7 +37,7 @@ class Scene3 extends Phaser.Scene {
         // setting values
         this.jumpSpeed = -1000;
         this.changedSpeed = 5;
-        this.speeding = 1;
+        this.speeding = 7;
         this.physics.world.gravity.y = 2600; 
 
         this.scene3 = this.add.tileSprite(0, 0, game.config.width, game.config.height, '3').setOrigin(0);
