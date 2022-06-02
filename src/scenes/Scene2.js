@@ -6,7 +6,7 @@ class Scene2 extends Phaser.Scene {
         this.load.path = "./assets/";
         this.load.image('2', 'scene2.png');
         this.load.image('player','player.png');
-        this.load.image('floor','floor.png');
+        this.load.image('platform', 'platform_center.png')
         this.load.image('monster','enemy.png');
         //this.load.image('T','m2.png');
         this.load.audio('jump', 'jump.wav');
@@ -38,7 +38,7 @@ class Scene2 extends Phaser.Scene {
         // setting values
         this.jumpSpeed = -1000;
         this.changedSpeed = 5;
-        this.speeding = 1;
+        this.speeding = 5;
         this.physics.world.gravity.y = 2600; 
 
         this.scenes = this.add.tileSprite(0, 0, game.config.width, game.config.height, '2').setOrigin(0);
@@ -75,9 +75,6 @@ class Scene2 extends Phaser.Scene {
         
         
 
-        // monster2 (the smaller one)
-        //this.bat =  this.physics.add.sprite(game.config.width, Math.random()*(425-380)+380,  'bat').setOrigin(0);
-        //this.bat.body.allowGravity = false;
         
         // add enemies to group
         this.enemy = this.add.group();
@@ -95,11 +92,7 @@ class Scene2 extends Phaser.Scene {
             this.player.setVelocityY(0);
             this.playerState--;
         });
-        //this.physics.add.collider(this.bats, this.player, ()=>{
-            //this.player.setVelocityX(0);
-            //this.player.setVelocityY(0);
-            //this.playerState--;
-        //});
+    
 
         // game over flag
         this.gameOver = false;
@@ -108,7 +101,7 @@ class Scene2 extends Phaser.Scene {
         // speed setting
         this.monster.body.setVelocityX(-300);
         
-        //this.bat.body.setVelocityX(-400);
+     
 
         // setting a countdown 
         this.clock = this.time.delayedCall(5000, () => {
@@ -217,10 +210,7 @@ class Scene2 extends Phaser.Scene {
                 this.monster_reset();
             }
             
-            //if(this.bat.body.x <-200||this.bat.body.velocity.x==0){
-                //this.bat_reset();
-            //}
-            
+         
            
 
             if(keyDOWN.isDown){
@@ -264,20 +254,6 @@ class Scene2 extends Phaser.Scene {
 
         
     }
-
-
-    //bat_reset(){
-        //this.bat.destroy();
-        //this.bat =  this.physics.add.sprite(game.config.width, Math.random()*(425-380)+380,  'bat').setOrigin(0);
-        //this.bat.body.allowGravity = false;
-        //this.bat.x = game.config.width+50;
-        //this.bat.setVelocityY(0);
-        //this.bat.setVelocityX((-1*((Math.random()*(500-400)+400)))*this.speeding);
-        //this.bat.y = Math.random()*(425-380)+380;
-        //this.bats.add(this.bat);
-
-    //}
-
 
 
     monster_reset(){
