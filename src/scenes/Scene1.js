@@ -6,7 +6,6 @@ class Scene1 extends Phaser.Scene {
         this.load.path = "./assets/";
         this.load.image('1', 'scene1.png');
         this.load.image('player','character.png');
-        this.load.image('floor','floor.png');
         this.load.image('monster','enemy.png');
         this.load.image('p_center','platform_center.png');
         this.load.image('p_left','platform_left.png');
@@ -91,9 +90,9 @@ class Scene1 extends Phaser.Scene {
         
         // add enemies to group
         this.enemy = this.add.group();
-        //this.bats = this.add.group();
+      
         this.enemy.add(this.monster);
-        //this.bats.add(this.bat)
+       
         
         
         
@@ -105,12 +104,7 @@ class Scene1 extends Phaser.Scene {
             this.player.setVelocityY(0);
             this.playerState--;
         });
-        //this.physics.add.collider(this.bats, this.player, ()=>{
-            //this.player.setVelocityX(0);
-            //this.player.setVelocityY(0);
-            //this.playerState--;
-        //});
-
+      
         // game over flag
         this.gameOver = false;
         
